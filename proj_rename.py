@@ -37,7 +37,7 @@ input_file = ""
 replace_dict = dict()
 
 # deal with path name: libs
-ignore_dir_names = []
+ignore_dir_names = ["libs"]
 # deal with: /User/libs
 ignore_dirs = []
 # ignore special file names
@@ -63,6 +63,7 @@ def replace_file(source_path, func=None):
 
         document_name = base_path.split("/")[-1]
         if document_name in ignore_dir_names:
+            sub_path_list[:] = []
             continue
 
         for file_name in file_name_list:
